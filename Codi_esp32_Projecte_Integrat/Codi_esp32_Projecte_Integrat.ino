@@ -6,11 +6,11 @@
 #define SEA_LEVEL_PRESSURE 1015.0f
 
 // Configuración WiFi
-const char* ssid = "Lab-Modul";
-const char* password = "Nix929Xr";
+const char* ssid = "Nombre del Wifi";
+const char* password = "Contraseña Wifi";
 
 // Configuración MQTT
-const char* mqttServer = "10.11.0.155";
+const char* mqttServer = "IP de la Raspberry";
 const int mqttPort = 1883;
 const char* mqttUser = "Home_Assistan";
 const char* mqttPassword = "1234";
@@ -33,6 +33,7 @@ int presencia;
 float temp, humi, alti;
 uint32_t press;
 uint8_t AQI;
+unsigned int peakToPeak;
 
 void printLastOperateStatus(BME::eStatus_t eStatus) {
   switch(eStatus) {
@@ -115,7 +116,7 @@ void setup() {
 void leerSensores() {
   // Leer sonido
   unsigned long startMillis = millis();
-  unsigned int peakToPeak = 0;
+  peakToPeak = 0;
   unsigned int signalMax = 0;
   unsigned int signalMin = 4095;
 
